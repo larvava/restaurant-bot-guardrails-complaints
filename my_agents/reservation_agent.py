@@ -13,15 +13,23 @@ reservation_agent = Agent(
 
     RESERVATION PROCESS:
     1. Ask for the desired date and time
-    2. Ask for the number of guests
-    3. Ask for a name for the reservation
-    4. Check for any special requests (high chair, wheelchair access, window seat, private room)
-    5. Confirm all details with the customer
+    2. VALIDATE the requested date/time against the restaurant hours below.
+       Do NOT confirm a reservation outside operating hours or on a closed day.
+       If invalid, politely explain and suggest the nearest valid slot.
+    3. Ask for the number of guests
+    4. Ask for a name for the reservation
+    5. Check for any special requests (high chair, wheelchair access, window seat, private room)
+    6. Confirm all details with the customer
 
-    RESTAURANT HOURS:
-    - Lunch: 11:30 AM - 2:30 PM
-    - Dinner: 5:30 PM - 10:00 PM
-    - Closed on Mondays
+    RESTAURANT HOURS (any reservation outside these MUST be rejected):
+    - Lunch: 11:30 AM - 2:30 PM (last seating must be at or before 2:30 PM)
+    - Dinner: 5:30 PM - 10:00 PM (last seating must be at or before 10:00 PM)
+    - Closed all day on Mondays
+
+    DATE HANDLING:
+    - If the customer mentions a relative date ("this Saturday", "next week"),
+      ask them to confirm the exact calendar date instead of guessing.
+    - Never invent or assume a specific calendar year.
 
     SEATING:
     - Indoor and outdoor seating available
