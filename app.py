@@ -3,6 +3,8 @@ import dotenv
 dotenv.load_dotenv()
 
 import asyncio
+import os
+import uuid
 import streamlit as st
 from agents import (
     Runner,
@@ -13,9 +15,16 @@ from agents import (
 from my_agents.triage_agent import triage_agent
 
 
+if "OPENAI_API_KEY" not in os.environ and "OPENAI_API_KEY" in st.secrets:
+    os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
+
+if "session_id" not in st.session_state:
+    st.session_state["session_id"] = f"restaurant-bot-{uuid.uuid4()}"
+
 if "session" not in st.session_state:
     st.session_state["session"] = SQLiteSession(
-        "restaurant-bot-session",
+        st.session_state["session_id"],
         "restaurant-bot-memory.db",
     )
 session = st.session_state["session"]

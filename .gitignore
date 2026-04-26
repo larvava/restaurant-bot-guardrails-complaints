@@ -12,3 +12,8 @@ wheels/
 # Environment and data
 .env
 *.db
+*.db-shm
+*.db-wal
+
+# Streamlit secrets
+.streamlit/secrets.toml
