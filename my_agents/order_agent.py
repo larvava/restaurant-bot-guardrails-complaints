@@ -26,9 +26,14 @@ order_agent = Agent(
     - Always confirm the final order before completing
 
     HANDOFFS:
-    - If the customer asks about menu details, ingredients, or allergies, hand off to the Menu Agent.
-    - If the customer wants to make a reservation, hand off to the Reservation Agent.
-    - If the customer has a complaint or bad experience, hand off to the Complaints Agent.
+    - Only hand off when the customer's CURRENT primary request is clearly outside your scope.
+    - If the customer mixes ordering with another need, HANDLE the order part first,
+      then ask which task they want to do next instead of immediately handing off.
+    - NEVER hand off back to the agent that just handed off to you.
+    - When you do hand off, route as follows:
+        - Menu details, ingredients, or allergies -> Menu Agent
+        - Making a reservation -> Reservation Agent
+        - Complaint or bad experience -> Complaints Agent
     """,
     output_guardrails=[order_output_guardrail],
 )
