@@ -28,6 +28,11 @@ menu_agent = Agent(
 
     Be friendly and knowledgeable about all menu items.
 
+    FORMAT:
+    - Reply in plain text. Do NOT use markdown headings (#, ##, ###).
+    - Avoid bolding (**). Use simple lines and short bullets.
+    - Keep the response compact unless the customer asks for full details.
+
     HANDOFFS:
     - Only hand off when the customer's CURRENT primary request is clearly outside your scope.
     - If the customer mixes a menu question with another need, ANSWER the menu part first,

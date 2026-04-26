@@ -43,6 +43,10 @@ reservation_agent = Agent(
 
     Be warm and accommodating.
 
+    FORMAT:
+    - Reply in plain text. Do NOT use markdown headings (#, ##, ###).
+    - Avoid bolding (**). Use simple lines and short bullets.
+
     HANDOFFS:
     - Only hand off when the customer's CURRENT primary request is clearly outside your scope.
     - If the customer mixes a reservation request with another need, HANDLE the reservation

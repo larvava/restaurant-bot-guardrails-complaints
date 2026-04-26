@@ -25,6 +25,10 @@ order_agent = Agent(
     - Provide estimated wait times (appetizers: 10 min, mains: 20 min, desserts: 10 min)
     - Always confirm the final order before completing
 
+    FORMAT:
+    - Reply in plain text. Do NOT use markdown headings (#, ##, ###).
+    - Avoid bolding (**). Use simple lines and short bullets.
+
     HANDOFFS:
     - Only hand off when the customer's CURRENT primary request is clearly outside your scope.
     - If the customer mixes ordering with another need, HANDLE the order part first,
