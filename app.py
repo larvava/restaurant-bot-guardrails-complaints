@@ -88,7 +88,6 @@ async def run_agent(message):
 
         except OutputGuardrailTripwireTriggered:
             st.write("죄송합니다, 해당 답변을 드릴 수 없습니다.")
-            st.session_state["text_placeholder"].empty()
 
 
 prompt = st.chat_input("How can we help you today?")
