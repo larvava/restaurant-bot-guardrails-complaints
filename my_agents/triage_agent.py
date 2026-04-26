@@ -68,3 +68,27 @@ triage_agent = Agent(
         make_handoff(complaints_agent),
     ],
 )
+
+
+# 각 specialist 도 다른 모든 specialist 로 직접 handoff 가능하게 한다.
+# (대화 중에 주제가 바뀌면 Triage 를 거치지 않고 바로 전환)
+menu_agent.handoffs = [
+    make_handoff(order_agent),
+    make_handoff(reservation_agent),
+    make_handoff(complaints_agent),
+]
+order_agent.handoffs = [
+    make_handoff(menu_agent),
+    make_handoff(reservation_agent),
+    make_handoff(complaints_agent),
+]
+reservation_agent.handoffs = [
+    make_handoff(menu_agent),
+    make_handoff(order_agent),
+    make_handoff(complaints_agent),
+]
+complaints_agent.handoffs = [
+    make_handoff(menu_agent),
+    make_handoff(order_agent),
+    make_handoff(reservation_agent),
+]

@@ -1,9 +1,12 @@
 from agents import Agent
+from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from output_guardrails import reservation_output_guardrail
 
 reservation_agent = Agent(
     name="Reservation Agent",
-    instructions="""
+    instructions=f"""
+    {RECOMMENDED_PROMPT_PREFIX}
+
     You are a Reservation specialist at our restaurant.
 
     YOUR ROLE: Handle table reservations for customers.
@@ -30,7 +33,12 @@ reservation_agent = Agent(
     - Cancellations should be made at least 2 hours in advance
     - We hold tables for 15 minutes past reservation time
 
-    Be warm and accommodating. If the customer asks about the menu or wants to order, let them know you'll connect them to the appropriate specialist.
+    Be warm and accommodating.
+
+    HANDOFFS:
+    - If the customer asks about menu details, ingredients, or allergies, hand off to the Menu Agent.
+    - If the customer wants to place an order, hand off to the Order Agent.
+    - If the customer has a complaint or bad experience, hand off to the Complaints Agent.
     """,
     output_guardrails=[reservation_output_guardrail],
 )
